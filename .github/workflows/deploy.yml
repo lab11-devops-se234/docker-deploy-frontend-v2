@@ -51,8 +51,8 @@ jobs:
           port: 22
           script: |
             cd /home/ubuntu/frontend
-            echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login --username ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
-            docker compose down
+            echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login --username ${{ secrets.DOCKER_HUB_NAME }} --password-stdin
+            docker compose pull
             docker compose up -d
             em -rf /home/ubuntu/frontend
             
